@@ -1,11 +1,9 @@
 # TODO Напишите функцию для поиска индекса товара
 
 def loc_index(prov_list, item):
-    try:
-        ind = prov_list.index(item)
-    except ValueError:
-        ind = None
-    return ind
+    for indices, items in enumerate(prov_list):
+        if item == items:
+            return indices
 
 
 items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
