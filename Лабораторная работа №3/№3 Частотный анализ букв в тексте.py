@@ -1,11 +1,13 @@
 # TODO  Напишите функцию count_letters
 
 def count_letters(given_text):
-    modified_text = ((''.join(char for char in given_text if char.isalpha())).lower())  # Получаем текст содержащий только буквы
     letters = []
-    for char in modified_text:
-        if char not in letters:
-            letters += char
+    modified_text = ""
+    for char in given_text.lower():
+        if char.isalpha():
+            modified_text += char
+            if char not in letters:
+                letters += char
     amount = {}
     for char in letters:
         amount[f"{char}"] = modified_text.count(char)
@@ -62,5 +64,6 @@ main_str = """
 letter_percentage = calculate_frequency(count_letters(main_str))
 for char in letter_percentage:
     print(f'{char}: {letter_percentage[f"{char}"]:.2f}')
+
 
 # TODO Распечатайте в столбик букву и её частоту в тексте
